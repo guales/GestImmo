@@ -128,6 +128,13 @@
     <Compile Include="Model\Ligne_echeance_assurance.cs" />
     <Compile Include="Model\Ligne_echeance_pret.cs" />
     <Compile Include="Model\Logement.cs" />
+    <Compile Include="View\LogementWindow.xaml.cs">
+      <DependentUpon>LogementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowBase.cs" />
+    <Compile Include="View\TableauDeBordWindow.xaml.cs">
+      <DependentUpon>TableauDeBordWindow.xaml</DependentUpon>
+	</Compile>
     <Compile Include="Model\Piece.cs" />
     <Compile Include="Model\Pret.cs" />
     <Compile Include="Model\Remboursement.cs" />
@@ -143,19 +150,15 @@
     <Compile Include="View\TableauDeBord.xaml.cs">
       <DependentUpon>TableauDeBord.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="View\TableauDeBord.xaml">
+    <Page Include="View\LogementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TableauDeBordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

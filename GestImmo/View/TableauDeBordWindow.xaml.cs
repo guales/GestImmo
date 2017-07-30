@@ -13,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using GestImmo.View;
-
-namespace GestImmo
+namespace GestImmo.View
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour TableauDeBordWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TableauDeBordWindow : WindowBase
     {
-        public MainWindow()
+        public TableauDeBordWindow()
         {
             InitializeComponent();
-            
-            // Page d'accueil : View\TableauDeBord.xaml
-            Page pageAccueil = new TableauDeBord();
-            this.Content = pageAccueil;
         }
     }
 }
