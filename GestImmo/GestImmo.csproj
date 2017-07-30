@@ -82,52 +82,52 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BDD\assurance.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="BDD\charge.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="BDD\deblocage_fond.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="BDD\frais.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="BDD\frais_pret.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BDD\GestImmo_Entity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestImmo_Entity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BDD\GestImmo_Entity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BDD\GestImmo_Entity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestImmo_Entity.edmx</DependentUpon>
     </Compile>
     <Compile Include="BDD\ligne_echeance_pret.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="BDD\ligne_echeancier_assurance.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="BDD\logement.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BDD\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BDD\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BDD\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="BDD\piece.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="BDD\pret.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="BDD\remboursement.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GestImmo_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Assurance.cs" />
     <Compile Include="Model\Charge.cs" />
@@ -181,12 +181,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="BDD\Model1.edmx">
+    <EntityDeploy Include="BDD\GestImmo_Entity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>GestImmo_Entity.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BDD\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="BDD\GestImmo_Entity.edmx.diagram">
+      <DependentUpon>GestImmo_Entity.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -205,22 +205,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BDD_GestImmo.mdf</DependentUpon>
     </Content>
-    <Content Include="BDD\Model1.Context.tt">
+    <Content Include="BDD\GestImmo_Entity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>GestImmo_Entity.Context.cs</LastGenOutput>
+      <DependentUpon>GestImmo_Entity.edmx</DependentUpon>
     </Content>
-    <Content Include="BDD\Model1.tt">
+    <Content Include="BDD\GestImmo_Entity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
-    <Content Include="BDD_GestImmo.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BDD_GestImmo_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>BDD_GestImmo.mdf</DependentUpon>
+      <DependentUpon>GestImmo_Entity.edmx</DependentUpon>
+      <LastGenOutput>GestImmo_Entity.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

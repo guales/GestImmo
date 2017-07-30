@@ -13,10 +13,10 @@ namespace GestImmo.BDD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BDD_GestImmoEntities1 : DbContext
+    public partial class BDD_GestImmoEntity : DbContext
     {
-        public BDD_GestImmoEntities1()
-            : base("name=BDD_GestImmoEntities1")
+        public BDD_GestImmoEntity()
+            : base("name=BDD_GestImmoEntity")
         {
         }
     
