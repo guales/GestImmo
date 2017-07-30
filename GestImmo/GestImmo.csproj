@@ -54,7 +54,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Assurance.cs" />
+    <Compile Include="Model\Charge.cs" />
+    <Compile Include="Model\Deblocage_fond.cs" />
+    <Compile Include="Model\Frais.cs" />
+    <Compile Include="Model\Frais_pret.cs" />
+    <Compile Include="Model\Ligne_echeance_assurance.cs" />
+    <Compile Include="Model\Ligne_echeance_pret.cs" />
     <Compile Include="Model\Logement.cs" />
+    <Compile Include="Model\Piece.cs" />
+    <Compile Include="Model\Pret.cs" />
+    <Compile Include="Model\Remboursement.cs" />
     <Compile Include="View\TableauDeBord.xaml.cs">
       <DependentUpon>TableauDeBord.xaml</DependentUpon>
     </Compile>
