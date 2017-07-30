@@ -147,15 +147,6 @@
     <Compile Include="Model\Piece.cs" />
     <Compile Include="Model\Pret.cs" />
     <Compile Include="Model\Remboursement.cs" />
-    <Compile Include="BDD\piece.cs">
-      <DependentUpon>BDD_GestImmo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BDD\pret.cs">
-      <DependentUpon>BDD_GestImmo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BDD\remboursement.cs">
-      <DependentUpon>BDD_GestImmo.tt</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
