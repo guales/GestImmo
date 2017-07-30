@@ -140,6 +140,9 @@
     <Compile Include="View\LogementWindow.xaml.cs">
       <DependentUpon>LogementWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Tmp.xaml.cs">
+      <DependentUpon>Tmp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WindowBase.cs" />
     <Compile Include="View\TableauDeBordWindow.xaml.cs">
       <DependentUpon>TableauDeBordWindow.xaml</DependentUpon>
@@ -156,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TableauDeBordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tmp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

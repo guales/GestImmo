@@ -1,0 +1,190 @@
+﻿<Window x:Class="GestImmo.View.Tmp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GestImmo.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Tmp"
+      Height="600"
+      Width="1000">
+
+    <DockPanel>
+
+        <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="2">
+
+            <Grid Margin="10,10,0,10" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Content="Modif" Grid.Column="0" Grid.Row="0" />
+                <Label Content="Save" Grid.Column="1" Grid.Row="0" />
+                <Label Content="TDB" Grid.Column="2" Grid.Row="0" />
+
+            </Grid>            
+
+        </Border>
+
+        <Grid Margin="10,0,10,10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Content="Casa del sol Eysines" Style="{StaticResource bigHeaderTextStyle}" />
+
+            <Image Margin="10,20,20,0" Grid.Column="0" Grid.Row="1" Source="C:\Users\Guilou\Desktop\home.jpg" Width="300" Height="Auto"/>
+            
+            <DockPanel Margin="20,20,20,20" Grid.Column="1" Grid.Row="1">
+                <Label DockPanel.Dock="Top" Content="Adresse" Style="{StaticResource headerTextStyle}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Rue" Grid.Column="0" Grid.Row="0" />
+                    <Label Content="CP" Grid.Column="0" Grid.Row="1" />
+                    <Label Content="Ville" Grid.Column="0" Grid.Row="2" />
+                    <Label Content="Pays" Grid.Column="0" Grid.Row="3" />
+
+                    <TextBox Grid.Column="1" Grid.Row="0" Margin="0, 5, 5, 5" IsEnabled="False" Text="266 B cours de l'argonne"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="0, 5, 5, 5" IsEnabled="False" Text="33000"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="0, 5, 5, 5" IsEnabled="False" Text="BORDEAUX"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Margin="0, 5, 5, 5" IsEnabled="False" Text="FRANCE"/>
+
+                </Grid>
+            </DockPanel>
+
+            <DockPanel Margin="20,20,20,0" Grid.Column="2" Grid.Row="1" >
+                <Label DockPanel.Dock="Top" Content="Info juridique" Style="{StaticResource headerTextStyle}" />
+
+                <TextBlock Margin="7, 0, 0, 0" IsEnabled="False">Pas de location pendant 5 ans<LineBreak/>Blabla</TextBlock>
+
+            </DockPanel>
+
+            <DockPanel Margin="0,20,20,0" Grid.Column="0" Grid.Row="2" >
+                <Label DockPanel.Dock="Top" Content="Résumé" Style="{StaticResource headerTextStyle}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Prix"        Grid.Column="0" Grid.Row="0" />
+                    <Label Content="Année"       Grid.Column="0" Grid.Row="1" />
+                    <Label Content="Surface"     Grid.Column="0" Grid.Row="2" />
+                    <Label Content="Jardin"      Grid.Column="0" Grid.Row="3" />
+                    <Label Content="Parking"     Grid.Column="0" Grid.Row="4" />
+                    <Label Content="Type"        Grid.Column="0" Grid.Row="5" />
+                    <Label Content="Utilisation" Grid.Column="0" Grid.Row="6" />
+
+                    <TextBox Grid.Column="1" Grid.Row="0" Margin="0, 5, 5, 5" IsEnabled="False" Text="230 000 €"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="0, 5, 5, 5" IsEnabled="False" Text="2017"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="0, 5, 5, 5" IsEnabled="False" Text="78 m²"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Margin="0, 5, 5, 5" IsEnabled="False" Text="45 m²"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" Margin="0, 5, 5, 5" IsEnabled="False" Text="2 Places"/>
+                    <TextBox Grid.Column="1" Grid.Row="5" Margin="0, 5, 5, 5" IsEnabled="False" Text="T4 duplex jardin copropriété"/>
+                    <TextBox Grid.Column="1" Grid.Row="6" Margin="0, 5, 5, 5" IsEnabled="False" Text="Résidence principale"/>
+
+                </Grid>
+            </DockPanel>
+
+            <DockPanel Margin="20,20,20,0" Grid.Column="1" Grid.Row="2" >
+                <Label DockPanel.Dock="Top" Content="Pièces" Style="{StaticResource headerTextStyle}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Salon" Grid.Column="0" Grid.Row="0" />
+                    <Label Content="Cuisine" Grid.Column="0" Grid.Row="1" />
+                    <Label Content="Chambre 1" Grid.Column="0" Grid.Row="2" />
+                    <Label Content="Chambre 2" Grid.Column="0" Grid.Row="3" />
+                    <Label Content="Chambre 3" Grid.Column="0" Grid.Row="4" />
+                    <Label Content="Salle de bain" Grid.Column="0" Grid.Row="5" />
+
+                    <TextBox Grid.Column="1" Grid.Row="0" Margin="0, 5, 5, 5" IsEnabled="False" Text="32 m²"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="0, 5, 5, 5" IsEnabled="False" Text="24 m²"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="0, 5, 5, 5" IsEnabled="False" Text="9.8 m²"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Margin="0, 5, 5, 5" IsEnabled="False" Text="9.6 m²"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" Margin="0, 5, 5, 5" IsEnabled="False" Text="9.6 m²"/>
+                    <TextBox Grid.Column="1" Grid.Row="5" Margin="0, 5, 5, 5" IsEnabled="False" Text="8 m²"/>
+
+                </Grid>
+            </DockPanel>
+
+            <DockPanel Margin="20,20,0,0" Grid.Column="2" Grid.Row="2" >
+                <Label DockPanel.Dock="Top" Content="Frais" Style="{StaticResource headerTextStyle}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Taxe copropriété" Grid.Column="0" Grid.Row="0" />
+                    <Label Content="Taxe foncière" Grid.Column="0" Grid.Row="1" />
+                    <Label Content="Taxe habitation" Grid.Column="0" Grid.Row="2" />
+
+                    <TextBox Grid.Column="1" Grid.Row="0" Margin="0, 5, 5, 5" IsEnabled="False" Text="150 €"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="0, 5, 5, 5" IsEnabled="False" Text="1500 €"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="0, 5, 5, 5" IsEnabled="False" Text="1500 €"/>
+
+                </Grid>
+            </DockPanel>
+
+        </Grid>
+
+    </DockPanel>
+</Window>
