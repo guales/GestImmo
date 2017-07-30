@@ -41,7 +41,7 @@ namespace GestImmo.Model
         }
 
         /// <summary>
-        /// Constructeur complet.
+        /// Constructeur complet. 
         /// </summary>
         public Logement(byte[] photo, string nom, string adresse,
             int codePostal, string ville, string taille, string typeLogement,
