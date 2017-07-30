@@ -1,0 +1,806 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BDD_GestImmoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="assurance">
+          <Key>
+            <PropertyRef Name="id_assurance" />
+          </Key>
+          <Property Name="id_assurance" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="compagnie" Type="varchar" MaxLength="100" />
+          <Property Name="frequence_paiement" Type="varchar" MaxLength="100" />
+          <Property Name="garantie" Type="varchar" MaxLength="500" />
+          <Property Name="id_pret" Type="int" />
+        </EntityType>
+        <EntityType Name="charge">
+          <Key>
+            <PropertyRef Name="id_charge" />
+          </Key>
+          <Property Name="id_charge" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_charge" Type="varchar" MaxLength="100" />
+          <Property Name="montant" Type="float" />
+          <Property Name="periodicite" Type="varchar" MaxLength="100" />
+          <Property Name="date_charge" Type="date" />
+          <Property Name="id_logement" Type="int" />
+        </EntityType>
+        <EntityType Name="deblocage_fond">
+          <Key>
+            <PropertyRef Name="id_deblocage_fond" />
+          </Key>
+          <Property Name="id_deblocage_fond" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pourcentage" Type="float" />
+          <Property Name="statut" Type="varchar" MaxLength="100" />
+          <Property Name="id_logement" Type="int" />
+        </EntityType>
+        <EntityType Name="frais">
+          <Key>
+            <PropertyRef Name="id_frais" />
+          </Key>
+          <Property Name="id_frais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categorie" Type="varchar" MaxLength="100" />
+          <Property Name="nom" Type="varchar" MaxLength="100" />
+          <Property Name="valeur" Type="float" />
+          <Property Name="id_logement" Type="int" />
+        </EntityType>
+        <EntityType Name="frais_pret">
+          <Key>
+            <PropertyRef Name="id_frais_pret" />
+          </Key>
+          <Property Name="id_frais_pret" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="100" />
+          <Property Name="montant" Type="float" />
+          <Property Name="date_paiement" Type="date" />
+          <Property Name="statut" Type="varchar" MaxLength="100" />
+          <Property Name="informations_complementaires" Type="varchar" MaxLength="255" />
+          <Property Name="id_pret" Type="int" />
+        </EntityType>
+        <EntityType Name="ligne_echeance_pret">
+          <Key>
+            <PropertyRef Name="id_ligne_echeance_pret" />
+          </Key>
+          <Property Name="id_ligne_echeance_pret" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date_prelevement" Type="date" />
+          <Property Name="montant_total" Type="float" />
+          <Property Name="montant_capital" Type="float" />
+          <Property Name="montant_interet" Type="float" />
+          <Property Name="statut" Type="varchar" MaxLength="100" />
+          <Property Name="id_pret" Type="int" />
+        </EntityType>
+        <EntityType Name="ligne_echeancier_assurance">
+          <Key>
+            <PropertyRef Name="id_ligne_echeancier_assurance" />
+          </Key>
+          <Property Name="id_ligne_echeancier_assurance" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="100" />
+          <Property Name="date_prelevement" Type="date" />
+          <Property Name="motif" Type="varchar" MaxLength="255" />
+          <Property Name="montant" Type="float" />
+          <Property Name="date_debut" Type="date" />
+          <Property Name="date_fin" Type="date" />
+          <Property Name="statut" Type="varchar" MaxLength="100" />
+          <Property Name="id_assurance" Type="int" />
+        </EntityType>
+        <EntityType Name="logement">
+          <Key>
+            <PropertyRef Name="id_logement" />
+          </Key>
+          <Property Name="id_logement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="photo" Type="image" />
+          <Property Name="nom" Type="varchar" MaxLength="255" />
+          <Property Name="adresse" Type="varchar" MaxLength="255" />
+          <Property Name="code_postal" Type="int" />
+          <Property Name="ville" Type="varchar" MaxLength="100" />
+          <Property Name="taille" Type="varchar" MaxLength="255" />
+          <Property Name="type_logement" Type="varchar" MaxLength="100" />
+          <Property Name="utilisation" Type="varchar" MaxLength="255" />
+          <Property Name="annee_construction" Type="int" />
+          <Property Name="informations_complementaires" Type="varchar" MaxLength="255" />
+          <Property Name="regles_fiscales" Type="varchar" MaxLength="255" />
+          <Property Name="prix_achat" Type="int" />
+        </EntityType>
+        <EntityType Name="piece">
+          <Key>
+            <PropertyRef Name="id_piece" />
+          </Key>
+          <Property Name="id_piece" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="taille" Type="float" />
+          <Property Name="mesure" Type="varchar" MaxLength="25" />
+          <Property Name="id_logement" Type="int" />
+        </EntityType>
+        <EntityType Name="pret">
+          <Key>
+            <PropertyRef Name="id_pret" />
+          </Key>
+          <Property Name="id_pret" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="100" />
+          <Property Name="banque" Type="varchar" MaxLength="100" />
+          <Property Name="montant" Type="float" />
+          <Property Name="duree" Type="varchar" MaxLength="100" />
+          <Property Name="date_debut" Type="date" />
+          <Property Name="date_fin" Type="date" />
+          <Property Name="taux" Type="float" />
+          <Property Name="id_logement" Type="int" />
+        </EntityType>
+        <EntityType Name="remboursement">
+          <Key>
+            <PropertyRef Name="id_remboursement" />
+          </Key>
+          <Property Name="id_remboursement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="100" />
+          <Property Name="montant_paye" Type="float" />
+          <Property Name="montant_total" Type="float" />
+          <Property Name="id_logement" Type="int" />
+        </EntityType>
+        <Association Name="FK__assurance__id_pr__3C69FB99">
+          <End Role="pret" Type="Self.pret" Multiplicity="0..1" />
+          <End Role="assurance" Type="Self.assurance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pret">
+              <PropertyRef Name="id_pret" />
+            </Principal>
+            <Dependent Role="assurance">
+              <PropertyRef Name="id_pret" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__charge__id_logem__25869641">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__deblocage__id_lo__2B3F6F97">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="deblocage_fond" Type="Self.deblocage_fond" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="deblocage_fond">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__frais__id_logeme__2E1BDC42">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="frais" Type="Self.frais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="frais">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__frais_pre__id_pr__398D8EEE">
+          <End Role="pret" Type="Self.pret" Multiplicity="0..1" />
+          <End Role="frais_pret" Type="Self.frais_pret" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pret">
+              <PropertyRef Name="id_pret" />
+            </Principal>
+            <Dependent Role="frais_pret">
+              <PropertyRef Name="id_pret" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ligne_ech__id_as__3F466844">
+          <End Role="assurance" Type="Self.assurance" Multiplicity="0..1" />
+          <End Role="ligne_echeancier_assurance" Type="Self.ligne_echeancier_assurance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="assurance">
+              <PropertyRef Name="id_assurance" />
+            </Principal>
+            <Dependent Role="ligne_echeancier_assurance">
+              <PropertyRef Name="id_assurance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ligne_ech__id_pr__36B12243">
+          <End Role="pret" Type="Self.pret" Multiplicity="0..1" />
+          <End Role="ligne_echeance_pret" Type="Self.ligne_echeance_pret" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pret">
+              <PropertyRef Name="id_pret" />
+            </Principal>
+            <Dependent Role="ligne_echeance_pret">
+              <PropertyRef Name="id_pret" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__piece__id_logeme__286302EC">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="piece" Type="Self.piece" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="piece">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pret__id_logemen__33D4B598">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="pret" Type="Self.pret" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="pret">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__rembourse__id_lo__30F848ED">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="remboursement" Type="Self.remboursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="remboursement">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BDD_GestImmoModelStoreContainer">
+          <EntitySet Name="assurance" EntityType="Self.assurance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="charge" EntityType="Self.charge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="deblocage_fond" EntityType="Self.deblocage_fond" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="frais" EntityType="Self.frais" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="frais_pret" EntityType="Self.frais_pret" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ligne_echeance_pret" EntityType="Self.ligne_echeance_pret" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ligne_echeancier_assurance" EntityType="Self.ligne_echeancier_assurance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="logement" EntityType="Self.logement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="piece" EntityType="Self.piece" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pret" EntityType="Self.pret" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="remboursement" EntityType="Self.remboursement" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__assurance__id_pr__3C69FB99" Association="Self.FK__assurance__id_pr__3C69FB99">
+            <End Role="pret" EntitySet="pret" />
+            <End Role="assurance" EntitySet="assurance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__charge__id_logem__25869641" Association="Self.FK__charge__id_logem__25869641">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="FK__deblocage__id_lo__2B3F6F97" Association="Self.FK__deblocage__id_lo__2B3F6F97">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="deblocage_fond" EntitySet="deblocage_fond" />
+          </AssociationSet>
+          <AssociationSet Name="FK__frais__id_logeme__2E1BDC42" Association="Self.FK__frais__id_logeme__2E1BDC42">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="frais" EntitySet="frais" />
+          </AssociationSet>
+          <AssociationSet Name="FK__frais_pre__id_pr__398D8EEE" Association="Self.FK__frais_pre__id_pr__398D8EEE">
+            <End Role="pret" EntitySet="pret" />
+            <End Role="frais_pret" EntitySet="frais_pret" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ligne_ech__id_as__3F466844" Association="Self.FK__ligne_ech__id_as__3F466844">
+            <End Role="assurance" EntitySet="assurance" />
+            <End Role="ligne_echeancier_assurance" EntitySet="ligne_echeancier_assurance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ligne_ech__id_pr__36B12243" Association="Self.FK__ligne_ech__id_pr__36B12243">
+            <End Role="pret" EntitySet="pret" />
+            <End Role="ligne_echeance_pret" EntitySet="ligne_echeance_pret" />
+          </AssociationSet>
+          <AssociationSet Name="FK__piece__id_logeme__286302EC" Association="Self.FK__piece__id_logeme__286302EC">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="piece" EntitySet="piece" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pret__id_logemen__33D4B598" Association="Self.FK__pret__id_logemen__33D4B598">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="pret" EntitySet="pret" />
+          </AssociationSet>
+          <AssociationSet Name="FK__rembourse__id_lo__30F848ED" Association="Self.FK__rembourse__id_lo__30F848ED">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="remboursement" EntitySet="remboursement" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDD_GestImmoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="assurance">
+          <Key>
+            <PropertyRef Name="id_assurance" />
+          </Key>
+          <Property Name="id_assurance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="compagnie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="frequence_paiement" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="garantie" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="id_pret" Type="Int32" />
+          <NavigationProperty Name="pret" Relationship="Self.FK__assurance__id_pr__3C69FB99" FromRole="assurance" ToRole="pret" />
+          <NavigationProperty Name="ligne_echeancier_assurance" Relationship="Self.FK__ligne_ech__id_as__3F466844" FromRole="assurance" ToRole="ligne_echeancier_assurance" />
+        </EntityType>
+        <EntityType Name="charge">
+          <Key>
+            <PropertyRef Name="id_charge" />
+          </Key>
+          <Property Name="id_charge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_charge" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="montant" Type="Double" />
+          <Property Name="periodicite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_charge" Type="DateTime" Precision="0" />
+          <Property Name="id_logement" Type="Int32" />
+          <NavigationProperty Name="logement" Relationship="Self.FK__charge__id_logem__25869641" FromRole="charge" ToRole="logement" />
+        </EntityType>
+        <EntityType Name="deblocage_fond">
+          <Key>
+            <PropertyRef Name="id_deblocage_fond" />
+          </Key>
+          <Property Name="id_deblocage_fond" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pourcentage" Type="Double" />
+          <Property Name="statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_logement" Type="Int32" />
+          <NavigationProperty Name="logement" Relationship="Self.FK__deblocage__id_lo__2B3F6F97" FromRole="deblocage_fond" ToRole="logement" />
+        </EntityType>
+        <EntityType Name="frais">
+          <Key>
+            <PropertyRef Name="id_frais" />
+          </Key>
+          <Property Name="id_frais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categorie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="valeur" Type="Double" />
+          <Property Name="id_logement" Type="Int32" />
+          <NavigationProperty Name="logement" Relationship="Self.FK__frais__id_logeme__2E1BDC42" FromRole="frais" ToRole="logement" />
+        </EntityType>
+        <EntityType Name="frais_pret">
+          <Key>
+            <PropertyRef Name="id_frais_pret" />
+          </Key>
+          <Property Name="id_frais_pret" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="montant" Type="Double" />
+          <Property Name="date_paiement" Type="DateTime" Precision="0" />
+          <Property Name="statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="informations_complementaires" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id_pret" Type="Int32" />
+          <NavigationProperty Name="pret" Relationship="Self.FK__frais_pre__id_pr__398D8EEE" FromRole="frais_pret" ToRole="pret" />
+        </EntityType>
+        <EntityType Name="ligne_echeance_pret">
+          <Key>
+            <PropertyRef Name="id_ligne_echeance_pret" />
+          </Key>
+          <Property Name="id_ligne_echeance_pret" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date_prelevement" Type="DateTime" Precision="0" />
+          <Property Name="montant_total" Type="Double" />
+          <Property Name="montant_capital" Type="Double" />
+          <Property Name="montant_interet" Type="Double" />
+          <Property Name="statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_pret" Type="Int32" />
+          <NavigationProperty Name="pret" Relationship="Self.FK__ligne_ech__id_pr__36B12243" FromRole="ligne_echeance_pret" ToRole="pret" />
+        </EntityType>
+        <EntityType Name="ligne_echeancier_assurance">
+          <Key>
+            <PropertyRef Name="id_ligne_echeancier_assurance" />
+          </Key>
+          <Property Name="id_ligne_echeancier_assurance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_prelevement" Type="DateTime" Precision="0" />
+          <Property Name="motif" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="montant" Type="Double" />
+          <Property Name="date_debut" Type="DateTime" Precision="0" />
+          <Property Name="date_fin" Type="DateTime" Precision="0" />
+          <Property Name="statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_assurance" Type="Int32" />
+          <NavigationProperty Name="assurance" Relationship="Self.FK__ligne_ech__id_as__3F466844" FromRole="ligne_echeancier_assurance" ToRole="assurance" />
+        </EntityType>
+        <EntityType Name="logement">
+          <Key>
+            <PropertyRef Name="id_logement" />
+          </Key>
+          <Property Name="id_logement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="adresse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="code_postal" Type="Int32" />
+          <Property Name="ville" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="taille" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="type_logement" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="utilisation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="annee_construction" Type="Int32" />
+          <Property Name="informations_complementaires" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="regles_fiscales" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="prix_achat" Type="Int32" />
+          <NavigationProperty Name="charge" Relationship="Self.FK__charge__id_logem__25869641" FromRole="logement" ToRole="charge" />
+          <NavigationProperty Name="deblocage_fond" Relationship="Self.FK__deblocage__id_lo__2B3F6F97" FromRole="logement" ToRole="deblocage_fond" />
+          <NavigationProperty Name="frais" Relationship="Self.FK__frais__id_logeme__2E1BDC42" FromRole="logement" ToRole="frais" />
+          <NavigationProperty Name="piece" Relationship="Self.FK__piece__id_logeme__286302EC" FromRole="logement" ToRole="piece" />
+          <NavigationProperty Name="pret" Relationship="Self.FK__pret__id_logemen__33D4B598" FromRole="logement" ToRole="pret" />
+          <NavigationProperty Name="remboursement" Relationship="Self.FK__rembourse__id_lo__30F848ED" FromRole="logement" ToRole="remboursement" />
+        </EntityType>
+        <EntityType Name="piece">
+          <Key>
+            <PropertyRef Name="id_piece" />
+          </Key>
+          <Property Name="id_piece" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="taille" Type="Double" />
+          <Property Name="mesure" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="id_logement" Type="Int32" />
+          <NavigationProperty Name="logement" Relationship="Self.FK__piece__id_logeme__286302EC" FromRole="piece" ToRole="logement" />
+        </EntityType>
+        <EntityType Name="pret">
+          <Key>
+            <PropertyRef Name="id_pret" />
+          </Key>
+          <Property Name="id_pret" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="banque" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="montant" Type="Double" />
+          <Property Name="duree" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_debut" Type="DateTime" Precision="0" />
+          <Property Name="date_fin" Type="DateTime" Precision="0" />
+          <Property Name="taux" Type="Double" />
+          <Property Name="id_logement" Type="Int32" />
+          <NavigationProperty Name="assurance" Relationship="Self.FK__assurance__id_pr__3C69FB99" FromRole="pret" ToRole="assurance" />
+          <NavigationProperty Name="frais_pret" Relationship="Self.FK__frais_pre__id_pr__398D8EEE" FromRole="pret" ToRole="frais_pret" />
+          <NavigationProperty Name="ligne_echeance_pret" Relationship="Self.FK__ligne_ech__id_pr__36B12243" FromRole="pret" ToRole="ligne_echeance_pret" />
+          <NavigationProperty Name="logement" Relationship="Self.FK__pret__id_logemen__33D4B598" FromRole="pret" ToRole="logement" />
+        </EntityType>
+        <EntityType Name="remboursement">
+          <Key>
+            <PropertyRef Name="id_remboursement" />
+          </Key>
+          <Property Name="id_remboursement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="montant_paye" Type="Double" />
+          <Property Name="montant_total" Type="Double" />
+          <Property Name="id_logement" Type="Int32" />
+          <NavigationProperty Name="logement" Relationship="Self.FK__rembourse__id_lo__30F848ED" FromRole="remboursement" ToRole="logement" />
+        </EntityType>
+        <Association Name="FK__assurance__id_pr__3C69FB99">
+          <End Role="pret" Type="Self.pret" Multiplicity="0..1" />
+          <End Role="assurance" Type="Self.assurance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pret">
+              <PropertyRef Name="id_pret" />
+            </Principal>
+            <Dependent Role="assurance">
+              <PropertyRef Name="id_pret" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ligne_ech__id_as__3F466844">
+          <End Role="assurance" Type="Self.assurance" Multiplicity="0..1" />
+          <End Role="ligne_echeancier_assurance" Type="Self.ligne_echeancier_assurance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="assurance">
+              <PropertyRef Name="id_assurance" />
+            </Principal>
+            <Dependent Role="ligne_echeancier_assurance">
+              <PropertyRef Name="id_assurance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__charge__id_logem__25869641">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="charge" Type="Self.charge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="charge">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__deblocage__id_lo__2B3F6F97">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="deblocage_fond" Type="Self.deblocage_fond" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="deblocage_fond">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__frais__id_logeme__2E1BDC42">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="frais" Type="Self.frais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="frais">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__frais_pre__id_pr__398D8EEE">
+          <End Role="pret" Type="Self.pret" Multiplicity="0..1" />
+          <End Role="frais_pret" Type="Self.frais_pret" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pret">
+              <PropertyRef Name="id_pret" />
+            </Principal>
+            <Dependent Role="frais_pret">
+              <PropertyRef Name="id_pret" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ligne_ech__id_pr__36B12243">
+          <End Role="pret" Type="Self.pret" Multiplicity="0..1" />
+          <End Role="ligne_echeance_pret" Type="Self.ligne_echeance_pret" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pret">
+              <PropertyRef Name="id_pret" />
+            </Principal>
+            <Dependent Role="ligne_echeance_pret">
+              <PropertyRef Name="id_pret" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__piece__id_logeme__286302EC">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="piece" Type="Self.piece" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="piece">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pret__id_logemen__33D4B598">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="pret" Type="Self.pret" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="pret">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__rembourse__id_lo__30F848ED">
+          <End Role="logement" Type="Self.logement" Multiplicity="0..1" />
+          <End Role="remboursement" Type="Self.remboursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logement">
+              <PropertyRef Name="id_logement" />
+            </Principal>
+            <Dependent Role="remboursement">
+              <PropertyRef Name="id_logement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BDD_GestImmoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="assurance" EntityType="Self.assurance" />
+          <EntitySet Name="charge" EntityType="Self.charge" />
+          <EntitySet Name="deblocage_fond" EntityType="Self.deblocage_fond" />
+          <EntitySet Name="frais" EntityType="Self.frais" />
+          <EntitySet Name="frais_pret" EntityType="Self.frais_pret" />
+          <EntitySet Name="ligne_echeance_pret" EntityType="Self.ligne_echeance_pret" />
+          <EntitySet Name="ligne_echeancier_assurance" EntityType="Self.ligne_echeancier_assurance" />
+          <EntitySet Name="logement" EntityType="Self.logement" />
+          <EntitySet Name="piece" EntityType="Self.piece" />
+          <EntitySet Name="pret" EntityType="Self.pret" />
+          <EntitySet Name="remboursement" EntityType="Self.remboursement" />
+          <AssociationSet Name="FK__assurance__id_pr__3C69FB99" Association="Self.FK__assurance__id_pr__3C69FB99">
+            <End Role="pret" EntitySet="pret" />
+            <End Role="assurance" EntitySet="assurance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ligne_ech__id_as__3F466844" Association="Self.FK__ligne_ech__id_as__3F466844">
+            <End Role="assurance" EntitySet="assurance" />
+            <End Role="ligne_echeancier_assurance" EntitySet="ligne_echeancier_assurance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__charge__id_logem__25869641" Association="Self.FK__charge__id_logem__25869641">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="charge" EntitySet="charge" />
+          </AssociationSet>
+          <AssociationSet Name="FK__deblocage__id_lo__2B3F6F97" Association="Self.FK__deblocage__id_lo__2B3F6F97">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="deblocage_fond" EntitySet="deblocage_fond" />
+          </AssociationSet>
+          <AssociationSet Name="FK__frais__id_logeme__2E1BDC42" Association="Self.FK__frais__id_logeme__2E1BDC42">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="frais" EntitySet="frais" />
+          </AssociationSet>
+          <AssociationSet Name="FK__frais_pre__id_pr__398D8EEE" Association="Self.FK__frais_pre__id_pr__398D8EEE">
+            <End Role="pret" EntitySet="pret" />
+            <End Role="frais_pret" EntitySet="frais_pret" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ligne_ech__id_pr__36B12243" Association="Self.FK__ligne_ech__id_pr__36B12243">
+            <End Role="pret" EntitySet="pret" />
+            <End Role="ligne_echeance_pret" EntitySet="ligne_echeance_pret" />
+          </AssociationSet>
+          <AssociationSet Name="FK__piece__id_logeme__286302EC" Association="Self.FK__piece__id_logeme__286302EC">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="piece" EntitySet="piece" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pret__id_logemen__33D4B598" Association="Self.FK__pret__id_logemen__33D4B598">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="pret" EntitySet="pret" />
+          </AssociationSet>
+          <AssociationSet Name="FK__rembourse__id_lo__30F848ED" Association="Self.FK__rembourse__id_lo__30F848ED">
+            <End Role="logement" EntitySet="logement" />
+            <End Role="remboursement" EntitySet="remboursement" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDD_GestImmoModelStoreContainer" CdmEntityContainer="BDD_GestImmoEntities">
+          <EntitySetMapping Name="assurance">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.assurance">
+              <MappingFragment StoreEntitySet="assurance">
+                <ScalarProperty Name="id_assurance" ColumnName="id_assurance" />
+                <ScalarProperty Name="compagnie" ColumnName="compagnie" />
+                <ScalarProperty Name="frequence_paiement" ColumnName="frequence_paiement" />
+                <ScalarProperty Name="garantie" ColumnName="garantie" />
+                <ScalarProperty Name="id_pret" ColumnName="id_pret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="charge">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.charge">
+              <MappingFragment StoreEntitySet="charge">
+                <ScalarProperty Name="id_charge" ColumnName="id_charge" />
+                <ScalarProperty Name="type_charge" ColumnName="type_charge" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="periodicite" ColumnName="periodicite" />
+                <ScalarProperty Name="date_charge" ColumnName="date_charge" />
+                <ScalarProperty Name="id_logement" ColumnName="id_logement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="deblocage_fond">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.deblocage_fond">
+              <MappingFragment StoreEntitySet="deblocage_fond">
+                <ScalarProperty Name="id_deblocage_fond" ColumnName="id_deblocage_fond" />
+                <ScalarProperty Name="pourcentage" ColumnName="pourcentage" />
+                <ScalarProperty Name="statut" ColumnName="statut" />
+                <ScalarProperty Name="id_logement" ColumnName="id_logement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="frais">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.frais">
+              <MappingFragment StoreEntitySet="frais">
+                <ScalarProperty Name="id_frais" ColumnName="id_frais" />
+                <ScalarProperty Name="categorie" ColumnName="categorie" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="valeur" ColumnName="valeur" />
+                <ScalarProperty Name="id_logement" ColumnName="id_logement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="frais_pret">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.frais_pret">
+              <MappingFragment StoreEntitySet="frais_pret">
+                <ScalarProperty Name="id_frais_pret" ColumnName="id_frais_pret" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="date_paiement" ColumnName="date_paiement" />
+                <ScalarProperty Name="statut" ColumnName="statut" />
+                <ScalarProperty Name="informations_complementaires" ColumnName="informations_complementaires" />
+                <ScalarProperty Name="id_pret" ColumnName="id_pret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ligne_echeance_pret">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.ligne_echeance_pret">
+              <MappingFragment StoreEntitySet="ligne_echeance_pret">
+                <ScalarProperty Name="id_ligne_echeance_pret" ColumnName="id_ligne_echeance_pret" />
+                <ScalarProperty Name="date_prelevement" ColumnName="date_prelevement" />
+                <ScalarProperty Name="montant_total" ColumnName="montant_total" />
+                <ScalarProperty Name="montant_capital" ColumnName="montant_capital" />
+                <ScalarProperty Name="montant_interet" ColumnName="montant_interet" />
+                <ScalarProperty Name="statut" ColumnName="statut" />
+                <ScalarProperty Name="id_pret" ColumnName="id_pret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ligne_echeancier_assurance">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.ligne_echeancier_assurance">
+              <MappingFragment StoreEntitySet="ligne_echeancier_assurance">
+                <ScalarProperty Name="id_ligne_echeancier_assurance" ColumnName="id_ligne_echeancier_assurance" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="date_prelevement" ColumnName="date_prelevement" />
+                <ScalarProperty Name="motif" ColumnName="motif" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+                <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+                <ScalarProperty Name="statut" ColumnName="statut" />
+                <ScalarProperty Name="id_assurance" ColumnName="id_assurance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logement">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.logement">
+              <MappingFragment StoreEntitySet="logement">
+                <ScalarProperty Name="id_logement" ColumnName="id_logement" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="code_postal" ColumnName="code_postal" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="taille" ColumnName="taille" />
+                <ScalarProperty Name="type_logement" ColumnName="type_logement" />
+                <ScalarProperty Name="utilisation" ColumnName="utilisation" />
+                <ScalarProperty Name="annee_construction" ColumnName="annee_construction" />
+                <ScalarProperty Name="informations_complementaires" ColumnName="informations_complementaires" />
+                <ScalarProperty Name="regles_fiscales" ColumnName="regles_fiscales" />
+                <ScalarProperty Name="prix_achat" ColumnName="prix_achat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="piece">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.piece">
+              <MappingFragment StoreEntitySet="piece">
+                <ScalarProperty Name="id_piece" ColumnName="id_piece" />
+                <ScalarProperty Name="taille" ColumnName="taille" />
+                <ScalarProperty Name="mesure" ColumnName="mesure" />
+                <ScalarProperty Name="id_logement" ColumnName="id_logement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pret">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.pret">
+              <MappingFragment StoreEntitySet="pret">
+                <ScalarProperty Name="id_pret" ColumnName="id_pret" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="banque" ColumnName="banque" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="duree" ColumnName="duree" />
+                <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+                <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+                <ScalarProperty Name="taux" ColumnName="taux" />
+                <ScalarProperty Name="id_logement" ColumnName="id_logement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="remboursement">
+            <EntityTypeMapping TypeName="BDD_GestImmoModel.remboursement">
+              <MappingFragment StoreEntitySet="remboursement">
+                <ScalarProperty Name="id_remboursement" ColumnName="id_remboursement" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="montant_paye" ColumnName="montant_paye" />
+                <ScalarProperty Name="montant_total" ColumnName="montant_total" />
+                <ScalarProperty Name="id_logement" ColumnName="id_logement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

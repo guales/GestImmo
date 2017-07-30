@@ -130,7 +130,7 @@ create table ligne_echeancier_assurance(
 create table base_version( 
     nom_patch varchar(100),
     num_patch varchar(25)
-);
+); 
 
 /*Insertion dans base version*/
 insert into base_version values('Initialisation BDD, creation des tables avec id initialisation','1-1');

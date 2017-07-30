@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="25bd1e1968284271a70503c1cd5f9bc9" Name="Diagram1">
+        <EntityTypeShape EntityType="BDD_GestImmoModel.assurance" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.charge" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.deblocage_fond" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.frais" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.frais_pret" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.ligne_echeance_pret" Width="1.5" PointX="5.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.ligne_echeancier_assurance" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.logement" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.piece" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.pret" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_GestImmoModel.remboursement" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__assurance__id_pr__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__ligne_ech__id_as__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__charge__id_logem__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__deblocage__id_lo__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__frais__id_logeme__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__frais_pre__id_pr__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__ligne_ech__id_pr__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__piece__id_logeme__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__pret__id_logemen__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="BDD_GestImmoModel.FK__rembourse__id_lo__30F848ED" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
