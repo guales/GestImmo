@@ -8,6 +8,8 @@ namespace GestImmo.Model
 {
     class Logement
     {
+        public int Id_logement { get; set; }
+
         public byte[] Photo { get; set; }
 
         public string Nom { get; set; }
@@ -43,11 +45,12 @@ namespace GestImmo.Model
         /// <summary>
         /// Constructeur complet. 
         /// </summary>
-        public Logement(byte[] photo, string nom, string adresse,
+        public Logement(int Id_logement, byte[] photo, string nom, string adresse,
             int codePostal, string ville, string taille, string typeLogement,
             string utilisation, int anneeConstruction, string informationsComplementaires,
             string reglesFiscales, int prixAchat)
         {
+            this.Id_logement = Id_logement;
             this.Photo = photo;
             this.Nom = nom;
             this.Adresse = adresse;
