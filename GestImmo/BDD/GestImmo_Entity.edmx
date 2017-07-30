@@ -581,7 +581,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BDD_GestImmoEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BDD_GestImmoEntity" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="assurance" EntityType="Self.assurance" />
           <EntitySet Name="charge" EntityType="Self.charge" />
           <EntitySet Name="deblocage_fond" EntityType="Self.deblocage_fond" />
@@ -639,7 +639,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BDD_GestImmoModelStoreContainer" CdmEntityContainer="BDD_GestImmoEntities">
+        <EntityContainerMapping StorageEntityContainer="BDD_GestImmoModelStoreContainer" CdmEntityContainer="BDD_GestImmoEntity">
           <EntitySetMapping Name="assurance">
             <EntityTypeMapping TypeName="BDD_GestImmoModel.assurance">
               <MappingFragment StoreEntitySet="assurance">
