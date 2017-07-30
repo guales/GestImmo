@@ -134,7 +134,7 @@
     <Compile Include="View\WindowBase.cs" />
     <Compile Include="View\TableauDeBordWindow.xaml.cs">
       <DependentUpon>TableauDeBordWindow.xaml</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="Model\Piece.cs" />
     <Compile Include="Model\Pret.cs" />
     <Compile Include="Model\Remboursement.cs" />
@@ -146,9 +146,6 @@
     </Compile>
     <Compile Include="BDD\remboursement.cs">
       <DependentUpon>BDD_GestImmo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="View\TableauDeBord.xaml.cs">
-      <DependentUpon>TableauDeBord.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
