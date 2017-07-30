@@ -5,27 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GestImmo.View
 {
-    /// <summary>
-    /// Logique d'interaction pour TableauDeBord.xaml
-    /// </summary>
-    public partial class TableauDeBord : Page
+    public class WindowBase : Window
     {
-        public TableauDeBord()
-        {
-            InitializeComponent();
-        }
-
-
         protected void GoTo_RecapitulatifPaiments(object sender, RoutedEventArgs e)
         {
             // TODO
@@ -38,7 +23,10 @@ namespace GestImmo.View
 
         protected void GoTo_Logement(object sender, RoutedEventArgs e)
         {
-            // TODO
+            LogementWindow logementWindow = new LogementWindow();
+            App.Current.MainWindow = logementWindow;
+            this.Close();
+            logementWindow.Show();
         }
 
         protected void GoTo_Remboursements(object sender, RoutedEventArgs e)
@@ -49,6 +37,14 @@ namespace GestImmo.View
         protected void GoTo_SynthèseFinanciere(object sender, RoutedEventArgs e)
         {
             // TODO
+        }
+
+        protected void GoTo_TableauDeBord(object sender, RoutedEventArgs e)
+        {
+            TableauDeBordWindow tableauDeBordWindow = new TableauDeBordWindow();
+            App.Current.MainWindow = tableauDeBordWindow;
+            this.Close();
+            tableauDeBordWindow.Show();
         }
     }
 }
