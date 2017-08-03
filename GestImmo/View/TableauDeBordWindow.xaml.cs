@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestImmo.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace GestImmo.View
         public TableauDeBordWindow()
         {
             InitializeComponent();
+            // Chargement du contexte
+            // Il s'agit du ViewModel que la vue TableauDeBordWindow va consommer
+            DataContext = new TableauDeBordViewModel();
         }
     }
 }

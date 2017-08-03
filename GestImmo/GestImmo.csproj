@@ -137,11 +137,20 @@
     <Compile Include="Model\Ligne_echeance_assurance.cs" />
     <Compile Include="Model\Ligne_echeance_pret.cs" />
     <Compile Include="Model\Logement.cs" />
+    <Compile Include="ViewModel\TableauDeBordViewModel.cs" />
+    <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\LogementWindow.xaml.cs">
       <DependentUpon>LogementWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Tmp.xaml.cs">
       <DependentUpon>Tmp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\MenuUC.xaml.cs">
+      <DependentUpon>MenuUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\ResumeUC.xaml.cs">
+      <DependentUpon>ResumeUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WindowBase.cs" />
     <Compile Include="View\TableauDeBordWindow.xaml.cs">
@@ -163,6 +172,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Tmp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\MenuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\ResumeUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,5 +252,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
